@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- saved from url=(0093)file:///C:/Users/Paige/Desktop/AUNLVSchool2024/PBH%20165%20Dr%20Kate/pbh165popquiz/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBH 165 Pop Quiz Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #1f1f1f;
+            padding: 20px 10px;
+            text-align: center;
+            color: #ffffff;
+            width: 100%;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1e1e1e;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #2c2c2c;
+            border: 1px solid #424242;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .options button:hover {
+            background: #3c3c3c;
+        }
+        .options button.correct {
+            background: #03dac6;
+            color: #121212;
+        }
+        .options button.incorrect {
+            background: #cf6679;
+            color: #121212;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1f1f1f;
+            color: #ffffff;
+            margin-top: 40px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PBH 165 UNLV Pop Quiz Game</h1>
+    </header>
+
+    <div class="container">
+        <div id="quiz-container">
+            <div id="question" class="question">People who have experienced repeated failures may eventually give up. This is called…</div>
+            <div id="options" class="options"><button>PTSD</button><button>Learned helplessness</button><button>Self-efficacy</button><button>Introversion</button></div>
+            <div id="score" class="score"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Pop Quiz Game. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const quizData = [
+            {
+                question: "What term is used to describe the expected number of years of full health remaining at a given age?",
+                options: [
+                    "Healthy life span",
+                    "Healthy life expectancy",
+                    "Health-related quality of life",
+                    "Wellness"
+                ],
+                correct: 1
+            },
+            {
+                question: "What statistic is used to describe the number of deaths from heart disease this year?",
+                options: [
+                    "Morbidity",
+                    "Mortality",
+                    "Incidence",
+                    "Prevalence"
+                ],
+                correct: 1
+            },
+            {
+                question: "What is psychological health?",
+                options: [
+                    "They have a sense of autonomy and don’t need others.",
+                    "They respect others and their macro environment.",
+                    "They are positive and look to the future.",
+                    "They value diversity."
+                ],
+                correct: 0
+            },
+            {
+                question: "People who have experienced repeated failures may eventually give up. This is called…",
+                options: [
+                    "PTSD",
+                    "Learned helplessness",
+                    "Self-efficacy",
+                    "Introversion"
+                ],
+                correct: 1
+            },
+            {
+                question: "Even though Andre experienced stress, he viewed it as growth. This is called…",
+                options: [
+                    "Strain",
+                    "Distress",
+                    "Eustress",
+                    "Adaptive response"
+                ],
+                correct: 2
+            },
+            {
+                question: "Which is NOT correct about sleeplessness in America?",
+                options: [
+                    "Women are more likely than men to suffer from insomnia.",
+                    "Men are more likely than women to snore.",
+                    "Hormonal changes or fluctuations have very little effect on restful sleep.",
+                    "Oversleeping can affect concentration."
+                ],
+                correct: 2
+            },
+            {
+                question: "The most sensitive or erotic spot in the female genital region is the…",
+                options: [
+                    "G-spot",
+                    "Clitoris",
+                    "Vaginal opening",
+                    "Cervix"
+                ],
+                correct: 1
+            },
+            {
+                question: "What is the most crucial nutrient for life?",
+                options: [
+                    "Water",
+                    "Fiber",
+                    "Minerals",
+                    "Starch"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which is true about cardiovascular disease?",
+                options: [
+                    "It is a problem only in developed nations.",
+                    "Risks are highest in Asian American populations.",
+                    "Risk factors are an issue only starting at age 50.",
+                    "It is the leading cause of death in the United States."
+                ],
+                correct: 3
+            },
+            {
+                question: "What is physical fitness?",
+                options: [
+                    "The ability to respond to routine physical demands.",
+                    "Having enough physical reserves to cope with a sudden challenge.",
+                    "A balance of cardiorespiratory, muscle, and flexibility fitness.",
+                    "All of the above."
+                ],
+                correct: 3
+            },
+            {
+                question: "Jennifer spreads herpes to her eye. This is an example of…",
+                options: [
+                    "Acquired immunity",
+                    "Passive spread",
+                    "Autoinoculation",
+                    "Self-vaccination"
+                ],
+                correct: 2
+            },
+            {
+                question: "Complementary health approaches focus on…",
+                options: [
+                    "Natural approach",
+                    "Psychological approach",
+                    "Holistic approach",
+                    "Gentle approach"
+                ],
+                correct: 2
+            },
+            {
+                question: "The progressive breakdown of joint cartilage is known as…",
+                options: [
+                    "Osteoporosis",
+                    "Osteoarthritis",
+                    "Calcium loss",
+                    "Vitamin D deficiency"
+                ],
+                correct: 1
+            }
+        ];
+
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        const scoreElement = document.getElementById("score");
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = "";
+
+            currentQuestion.options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = () => handleAnswer(index);
+                optionsElement.appendChild(button);
+            });
+        }
+
+        function handleAnswer(selectedIndex) {
+            const currentQuestion = quizData[currentQuestionIndex];
+            const buttons = optionsElement.querySelectorAll("button");
+
+            buttons.forEach((button, index) => {
+                if (index === currentQuestion.correct) {
+                    button.classList.add("correct");
+                } else if (index === selectedIndex) {
+                    button.classList.add("incorrect");
+                }
+                button.disabled = true;
+            });
+
+            if (selectedIndex === currentQuestion.correct) {
+                score++;
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                setTimeout(loadQuestion, 1000);
+            } else {
+                setTimeout(showScore, 1000);
+            }
+        }
+
+        function showScore() {
+            questionElement.textContent = "Quiz Complete!";
+            optionsElement.innerHTML = "";
+            scoreElement.textContent = `Your score: ${score} / ${quizData.length}`;
+        }
+
+        loadQuestion();
+    </script>
+
+
+</body></html>
